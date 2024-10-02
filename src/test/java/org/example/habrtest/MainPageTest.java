@@ -6,8 +6,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+
 import java.time.Duration;
 import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -31,7 +33,8 @@ public class MainPageTest {
     @DisplayName("Проверка обязательных полей")
     @RepeatedTest(5)
     public void sendTest() {
-        WebElement siteHelp = driver.findElement(By.xpath("//div[@class='tm-footer__container']//a[contains(text(), 'Техническая поддержка')]"));
+        WebElement siteHelp = driver.findElement(By.xpath(
+                "//div[@class='tm-footer__container']//a[contains(text(), 'Техническая поддержка')]"));
         siteHelp.click();
         WebElement button = driver.findElement(By.xpath("//button[@type='submit']"));
         button.click();
@@ -41,7 +44,8 @@ public class MainPageTest {
     @DisplayName("Проверка заголовка страницы")
     @Test
     public void feedbackTest() {
-        WebElement siteHelp = driver.findElement(By.xpath("//div[@class='tm-footer__container']//a[contains(text(), 'Техническая поддержка')]"));
+        WebElement siteHelp = driver.findElement(By.xpath(
+                "//div[@class='tm-footer__container']//a[contains(text(), 'Техническая поддержка')]"));
         siteHelp.click();
         WebElement heading = driver.findElement(By.xpath("//h1[contains(text(), 'Техническая поддержка')]"));
         assertTrue(heading.isDisplayed(), "Заголовок Техническая поодержка не найден");
